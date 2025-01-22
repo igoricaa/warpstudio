@@ -50,14 +50,6 @@ const VideoPlayer = ({
     if (!isFullscreen) {
       await player.requestFullscreen();
     }
-
-    // if (document.fullscreenElement) {
-    //   await document.exitFullscreen();
-    //   player.classList.add('mux-player-controls');
-    // } else {
-    //   await player.requestFullscreen();
-    //   player.classList.remove('mux-player-controls');
-    // }
   };
 
   const handleFullscreenChange = async () => {
@@ -68,10 +60,8 @@ const VideoPlayer = ({
     const isFullscreen = document.fullscreenElement === player;
 
     if (isFullscreen) {
-      //   player.classList.remove('mux-player-controls');
       player.controls = true;
     } else {
-      //   player.classList.add('mux-player-controls');
       player.controls = false;
     }
   };
@@ -88,11 +78,11 @@ const VideoPlayer = ({
       ref={playerRef}
       playbackId={project.video.playbackId}
       minResolution='1080p'
-    //   preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
+      //   preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
+      // poster={project.image.url}
       playsInline
       muted
       loop
-      // poster={project.image.url}
       metadata={{
         video_id: project._id,
         video_title: project.title,
@@ -101,7 +91,7 @@ const VideoPlayer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleVideoClick}
-      className='max-h-full'
+      className='max-h-full aspect-video'
     />
   );
 };
