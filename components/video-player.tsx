@@ -88,7 +88,7 @@ const VideoPlayer = ({
       ref={playerRef}
       playbackId={project.video.playbackId}
       minResolution='1080p'
-      preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
+    //   preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
       playsInline
       muted
       loop

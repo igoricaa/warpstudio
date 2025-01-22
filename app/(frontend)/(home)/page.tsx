@@ -14,13 +14,24 @@ type Project = {
 };
 
 const gridItemsPositioning: { [key: number]: string } = {
-  0: 'col-span-full row-span-2 row-start-1 h-[400px]',
-  1: 'col-span-1 md:col-span-2 row-span-2 row-start-3 h-[300px]',
-  2: 'col-span-1 md:col-span-2 row-span-2 row-start-3 h-[300px]',
-  3: 'col-span-2 md:col-span-3 row-span-2 row-start-5 h-[250px]',
-  4: 'col-span-1 md:col-span-1 row-span-2 row-start-5 h-[250px]',
-  5: 'col-span-full row-span-2 row-start-7 h-[350px]',
+  0: 'col-span-8 col-start-3 row-span-2',
+  1: 'col-span-8 row-span-2 row-start-3',
+  2: 'col-span-4 col-start-9 row-start-4',
+  3: 'col-span-10 col-start-2 row-span-2 row-start-5',
+  4: 'col-span-5 row-span-3 row-start-7',
+  5: 'col-span-4 col-start-6 row-span-2 row-start-8',
+  6: 'col-span-8 col-start-3 row-span-2 row-start-10'
 };
+      
+
+// const gridItemsPositioning: { [key: number]: string } = {
+//   0: 'col-span-full row-span-2 row-start-1 h-[400px]',
+//   1: 'col-span-1 md:col-span-2 row-span-2 row-start-3 h-[300px]',
+//   2: 'col-span-1 md:col-span-2 row-span-2 row-start-3 h-[300px]',
+//   3: 'col-span-2 md:col-span-3 row-span-2 row-start-5 h-[250px]',
+//   4: 'col-span-1 md:col-span-1 row-span-2 row-start-5 h-[250px]',
+//   5: 'col-span-full row-span-2 row-start-7 h-[350px]',
+// };
 
 export default async function Home() {
   async function getProject() {
@@ -61,7 +72,7 @@ export default async function Home() {
     // <div className='flex items-center justify-center w-screen min-h-screen font-[family-name:var(--font-geist-sans)]'>
 
     // <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4 pt-24'>
-    <div className='grid grid-cols-2 md:grid-cols-4 gap-4 p-4 pt-24 auto-rows-fr'>
+    <div className='grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-8  auto-rows-fr'>
       {[...projects, ...projects, ...projects, ...projects, ...projects].map(
         (project: Project, index: number) => (
           <div
