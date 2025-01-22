@@ -1,6 +1,5 @@
 'use client';
 
-// import MuxPlayer from '@mux/mux-player-react/lazy';
 import MuxVideo from '@mux/mux-video-react';
 import { useEffect, useRef } from 'react';
 
@@ -85,31 +84,32 @@ const VideoPlayer = ({
   }, []);
 
   return (
-    <div
-      className='relative group w-[60vw] max-h-[50vh]'
+    <MuxVideo
+      ref={playerRef}
+      playbackId={project.video.playbackId}
+      minResolution='1080p'
+      preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
+      playsInline
+      muted
+      loop
+      // poster={project.image.url}
+      metadata={{
+        video_id: project._id,
+        video_title: project.title,
+      }}
+      controls={false}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleVideoClick}
-    >
-      <div className='absolute top-12 left-12 z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300'>
-        <h2 className='text-white text-6xl font-bold'>{project.title}</h2>
-      </div>
-      <MuxVideo
-        ref={playerRef}
-        playbackId={project.video.playbackId}
-        minResolution='1080p'
-        preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
-        playsInline
-        muted
-        loop
-        poster={project.image.url}
-        metadata={{
-          video_id: project._id,
-          video_title: project.title,
-        }}
-        controls={false}
-      />
-      {/* <MuxPlayer
+      className='max-h-full'
+    />
+  );
+};
+
+export default VideoPlayer;
+
+{
+  /* <MuxPlayer
         ref={playerRef}
         playbackId={project.video.playbackId}
         minResolution='1080p'
@@ -128,9 +128,5 @@ const VideoPlayer = ({
           height: '100%',
         }}
         className='mux-player-controls'
-      /> */}
-    </div>
-  );
-};
-
-export default VideoPlayer;
+      /> */
+}
