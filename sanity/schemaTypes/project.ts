@@ -31,7 +31,6 @@ export default defineType({
           },
         },
       ],
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'video',

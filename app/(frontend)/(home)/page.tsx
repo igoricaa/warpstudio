@@ -13,14 +13,24 @@ type Project = {
   };
 };
 
-const gridItemsPositioning: { [key: number]: string } = {
-  0: 'col-span-8 col-start-3 row-span-2',
-  1: 'col-span-8 row-span-2 row-start-3',
-  2: 'col-span-4 col-start-9 row-start-4',
-  3: 'col-span-10 col-start-2 row-span-2 row-start-5',
-  4: 'col-span-5 row-span-3 row-start-7',
-  5: 'col-span-4 col-start-6 row-span-2 row-start-8',
-  6: 'col-span-8 col-start-3 row-span-2 row-start-10',
+// const gridItemsPositioning: { [key: number]: string } = {
+//   0: 'col-span-8 col-start-3 row-span-2',
+//   1: 'col-span-8 row-span-2 row-start-3',
+//   2: 'col-span-4 col-start-9 row-start-4',
+//   3: 'col-span-10 col-start-2 row-span-2 row-start-5',
+//   4: 'col-span-5 row-span-3 row-start-7',
+//   5: 'col-span-4 col-start-6 row-span-2 row-start-8',
+//   6: 'col-span-8 col-start-3 row-span-2 row-start-10',
+// };
+
+const flexItemsPositioning: { [key: number]: string } = {
+  0: 'w-8/12',
+  1: 'w-8/12',
+  2: 'w-3/12',
+  3: 'w-10/12',
+  4: 'w-5/12',
+  5: 'w-4/12',
+  6: 'w-10/12',
 };
 
 export default async function Home() {
@@ -48,12 +58,13 @@ export default async function Home() {
   const projects = await getProject();
 
   return (
-    <main className='grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-8 auto-rows-fr px-side'>
+    // <main className='grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-8 auto-rows-fr px-side'>
+    <main className='flex justify-center flex-wrap gap-10 auto-rows-fr px-side'>
       {[...projects, ...projects, ...projects, ...projects, ...projects].map(
         (project: Project, index: number) => (
           <div
             key={index}
-            className={`relative ${gridItemsPositioning[index]} w-full h-full`}
+            className={`relative ${flexItemsPositioning[index]} w-full h-full`}
           >
             <div className='absolute top-12 left-12 z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300'>
               <h2 className='text-white text-6xl font-bold'>{project.title}</h2>
