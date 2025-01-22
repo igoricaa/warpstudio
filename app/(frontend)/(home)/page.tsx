@@ -59,12 +59,12 @@ export default async function Home() {
 
   return (
     // <main className='grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-8 auto-rows-fr px-side'>
-    <main className='flex justify-center flex-wrap gap-10 auto-rows-fr px-side'>
+    <main className='flex justify-center flex-wrap gap-10 auto-rows-fr px-side pt-40'>
       {[...projects, ...projects, ...projects, ...projects, ...projects].map(
         (project: Project, index: number) => (
           <div
             key={index}
-            className={`relative ${flexItemsPositioning[index]} w-full h-full`}
+            className={`relative ${flexItemsPositioning[index]} h-full`}
           >
             <div className='absolute top-12 left-12 z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300'>
               <h2 className='text-white text-6xl font-bold'>{project.title}</h2>

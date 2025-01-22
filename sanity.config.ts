@@ -19,5 +19,8 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
-  plugins: [structureTool({ structure }), muxInput({})],
+  plugins: [
+    structureTool({ structure }),
+    muxInput({ max_resolution_tier: '2160p' }),
+  ],
 });
