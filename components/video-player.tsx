@@ -18,9 +18,11 @@ type Project = {
 const VideoPlayer = ({
   project,
   index,
+  className,
 }: {
   project: Project;
   index: number;
+  className?: string;
 }) => {
   const playerRef = useRef<any | null>(null);
 
@@ -61,8 +63,10 @@ const VideoPlayer = ({
 
     if (isFullscreen) {
       player.controls = true;
+      player.muted = false;
     } else {
       player.controls = false;
+      player.muted = true;
     }
   };
 
@@ -91,7 +95,7 @@ const VideoPlayer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleVideoClick}
-      className='max-h-full aspect-video'
+      className={`max-h-full aspect-video w-full ${className}`}
     />
   );
 };

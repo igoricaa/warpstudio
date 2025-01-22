@@ -8,12 +8,28 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        exo2: ['var(--font-exo2)'],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
       padding: {
         side: 'var(--padding-side)',
+      },
+      backgroundSize: {
+        scrollReveal: '0% 100%',
+      },
+      keyframes: {
+        scrollReveal: {
+          to: {
+            backgroundSize: '100% 100%',
+          },
+        },
+      },
+      animation: {
+        scrollReveal: 'scrollReveal linear forwards',
       },
     },
   },
