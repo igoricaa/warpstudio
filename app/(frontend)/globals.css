@@ -3,29 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply font-exo2 font-normal overflow-x-hidden;
-  }
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-exo2: 'Exo 2', sans-serif;
-  --padding-side: 3rem;
-}
-
-@media (prefers-color-scheme: dark) {
   :root {
-    /* --background: #0a0a0a; */
-    --background: #fff;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000;
+    --font-exo2: 'Exo 2', sans-serif;
+    --padding-side: 3rem;
+  }
+
+  .dark {
+    --background: #000;
+    --foreground: #fff;
   }
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
+@layer base {
+  body {
+    @apply bg-background text-foreground font-exo2 font-normal overflow-x-hidden;
+  }
 }
 
 .mux-player-controls {

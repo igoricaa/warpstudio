@@ -53,11 +53,15 @@ export default async function Home() {
       {projects.map((project: Project, index: number) => (
         <div
           key={index}
-          className={`relative ${index === 0 ? 'w-full' : videoWidth[index]} h-full group`}
+          className={`${index === 0 ? 'w-full' : videoWidth[index]} relative h-full group`}
         >
-          <div className={`${index === 0 && `${videoWidth[index]} mx-auto`}`}>
+          <div
+            className={`${index === 0 && `${videoWidth[index]} relative mx-auto`}`}
+          >
             <div className='absolute top-12 left-12 z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300'>
-              <h2 className='text-white text-6xl font-bold'>{project.title}</h2>
+              <h2 className='text-foreground text-6xl font-bold'>
+                {project.title}
+              </h2>
             </div>
             <VideoPlayer project={project} index={index} />
           </div>

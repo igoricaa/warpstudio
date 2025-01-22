@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Lenis from '@/components/lenis';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const exo2 = Exo_2({
   variable: '--font-exo2',
@@ -25,11 +26,17 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${exo2.variable} antialiased`}>
-        <Lenis>
-          <Header />
-          {children}
-          <Footer />
-        </Lenis>
+        <ThemeProvider
+          defaultTheme='light'
+          attribute='class'
+          disableTransitionOnChange
+        >
+          <Lenis>
+            <Header />
+            {children}
+            <Footer />
+          </Lenis>
+        </ThemeProvider>
       </body>
     </html>
   );

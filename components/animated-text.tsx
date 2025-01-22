@@ -64,7 +64,7 @@ const AnimatedText = ({
   return (
     <p
       ref={containerRef}
-      className={`flex justify-center flex-wrap mx-auto max-w-[1440px] text-black ${className}`}
+      className={`flex justify-center flex-wrap mx-auto max-w-[1440px] text-foreground ${className}`}
     >
       {words.map((word, index) => (
         <Word key={index}>{word}</Word>
