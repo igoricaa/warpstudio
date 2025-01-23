@@ -19,10 +19,10 @@ const videosProps: { [key: number]: string } = {
   0: 'w-9/12',
   1: 'w-8/12',
   2: 'w-3/12 self-end',
-  3: 'w-10/12',
+  3: 'w-10/12 mx-auto',
   4: 'w-5/12',
   5: 'w-4/12 self-end',
-  6: 'w-10/12',
+  6: 'w-10/12 ml-auto',
 };
 
 export default async function Home() {
@@ -51,7 +51,7 @@ export default async function Home() {
   const projects = await getProject();
 
   return (
-    <main className='flex justify-center flex-wrap gap-x-10 gap-y-24 auto-rows-fr px-side pt-48'>
+    <main className='flex flex-wrap gap-x-10 gap-y-28 auto-rows-fr px-side pt-48'>
       {projects.map((project: Project, index: number) => {
         const modifiedProject = {
           ...project,
@@ -82,7 +82,7 @@ export default async function Home() {
                 <AnimatedText className='text-7xl mt-36'>
                   Who are we?
                 </AnimatedText>
-                <AnimatedText className='text-4xl mt-7'>
+                <AnimatedText className='text-4xl mt-10'>
                   Warp Studio is a dynamic creative studio specializing in
                   video, photo and animation production. Established in 2018,
                   our tight-knit team passionately transforms concepts into

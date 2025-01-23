@@ -9,7 +9,7 @@ const MenuItem = () => {
   return (
     <Link
       href={pathname === '/contact' ? '/' : '/contact'}
-      className='uppercase'
+      className='uppercase underline-link'
     >
       {pathname === '/contact' ? 'Home' : 'Contact'}
     </Link>

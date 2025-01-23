@@ -12,7 +12,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className='flex items-center gap-10 text-foreground text-3xl font-medium bg-clip-text relative before:content-[""] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-[calc(100%+1.25rem)] before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10'>
+      <div className='flex items-center gap-10 text-foreground text-3xl font-medium'>
         <MenuItem />
         <ThemeSwitcher />
       </div>

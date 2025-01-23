@@ -7,7 +7,7 @@
     --background: #ffffff;
     --foreground: #000;
     --font-exo2: 'Exo 2', sans-serif;
-    --padding-side: 3rem;
+    --padding-side: 5%;
   }
 
   .dark {
@@ -35,4 +35,12 @@
   :root {
     --padding-side: 1rem;
   }
+}
+
+.underline-partial {
+  @apply w-fit relative before:content-[""] before:absolute before:-bottom-2 before:-left-[0.3rem] before:w-[calc(50%)] before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10;
+}
+
+.underline-link {
+  @apply w-fit relative before:content-[""] before:absolute before:-bottom-1 before:-left-2 before:w-0 hover:before:w-[calc(100%+1rem)] before:transition-all before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10;
 }
