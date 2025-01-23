@@ -91,11 +91,14 @@ const VideoPlayer = ({
 
   useEffect(() => {
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener(
+      'onwebkitfullscreenchange',
+      handleFullscreenChange
+    );
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
       document.removeEventListener(
-        'webkitfullscreenchange',
+        'onwebkitfullscreenchange',
         handleFullscreenChange
       );
     };
