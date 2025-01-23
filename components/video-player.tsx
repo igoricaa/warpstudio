@@ -90,6 +90,7 @@ const VideoPlayer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleVideoClick}
+      onTouchEnd={handleVideoClick}
     >
       <div className='absolute top-4 left-4 sm:top-8 sm:left-8 lg:top-9 lg:left-9 z-10 lg:group-hover:opacity-100 lg:opacity-0 lg:transition-opacity lg:duration-300'>
         <h2 className='text-white text-3xl sm:text-4xl lg:text-5xl font-medium'>
