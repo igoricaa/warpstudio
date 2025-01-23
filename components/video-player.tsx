@@ -12,6 +12,7 @@ type Project = {
   };
   video: {
     playbackId: string;
+    aspectRatio: string;
   };
 };
 
@@ -95,32 +96,9 @@ const VideoPlayer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleVideoClick}
-      className={`max-h-full aspect-video w-full ${className}`}
+      className={`max-h-full aspect-[${project.video.aspectRatio}] w-full ${className}`}
     />
   );
 };
 
 export default VideoPlayer;
-
-{
-  /* <MuxPlayer
-        ref={playerRef}
-        playbackId={project.video.playbackId}
-        minResolution='1080p'
-        preload={[0, 1, 2].includes(index) ? 'auto' : 'none'}
-        playsInline
-        muted
-        poster={project.image.url}
-        metadata={{
-          video_id: project._id,
-          video_title: project.title,
-        }}
-        loading='page'
-        style={{
-          aspectRatio: '16 / 9',
-          width: '100%',
-          height: '100%',
-        }}
-        className='mux-player-controls'
-      /> */
-}
