@@ -49,7 +49,9 @@ const VideoPlayer = ({
     setIsHovered(false);
   };
 
-  const handleVideoClick = async () => {
+  const handleVideoClick = async (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    console.log('im in');
     const player = playerRef.current;
 
     if (!player) return;
@@ -57,6 +59,7 @@ const VideoPlayer = ({
     const isFullscreen = document.fullscreenElement === player;
 
     if (!isFullscreen) {
+      console.log('im in fullscreen');
       await player.requestFullscreen();
     }
   };
@@ -89,8 +92,8 @@ const VideoPlayer = ({
       className={`${index === 0 && `${containerClassName} relative mx-auto`} cursor-pointer`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleVideoClick}
-      onTouchEnd={handleVideoClick}
+      onClick={(event) => handleVideoClick(event)}
+      // onTouchEnd={}
     >
       <div className='absolute top-4 left-4 sm:top-8 sm:left-8 lg:top-9 lg:left-9 z-10 lg:group-hover:opacity-100 lg:opacity-0 lg:transition-opacity lg:duration-300'>
         <h2 className='text-white text-3xl sm:text-4xl lg:text-5xl font-medium'>
