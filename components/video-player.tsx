@@ -60,7 +60,18 @@ const VideoPlayer = ({
 
     if (!isFullscreen) {
       console.log('im in fullscreen');
-      await player.requestFullscreen();
+      if (player.requestFullscreen) {
+        console.log('im in requestFullscreen');
+        await player.requestFullscreen();
+      } else if (player.webkitRequestFullscreen) {
+        console.log('im in webkitRequestFullscreen');
+        await player.webkitRequestFullscreen();
+      } else if (player.webkitEnterFullScreen) {
+        console.log('im in webkitEnterFullScreen');
+        await player.webkitEnterFullScreen();
+      } else {
+        console.error('Fullscreen API is not supported on this browser.');
+      }
     }
   };
 
