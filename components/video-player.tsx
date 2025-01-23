@@ -77,7 +77,10 @@ const VideoPlayer = ({
 
     if (!player) return;
 
-    if (isFullscreen) {
+    const isFullscreenWebkit = player.webkitDisplayingFullscreen;
+    console.log('fullscreenwebkit: ', isFullscreenWebkit);
+
+    if (isFullscreen || isFullscreenWebkit) {
       player.controls = true;
       player.muted = false;
     } else {
