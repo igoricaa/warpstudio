@@ -44,3 +44,17 @@
 .underline-link {
   @apply w-fit relative before:content-[""] before:absolute before:-bottom-1 before:-left-2 before:w-0 hover:before:w-[calc(100%+1rem)] before:transition-all before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10;
 }
+
+.cursor,
+.cursorLabel {
+  @apply w-32 h-32 rounded-full bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] text-white fixed z-20 flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
+}
+
+.cursorLabel {
+  @apply bg-transparent relative w-full h-full text-center;
+}
+
+.cursor.active,
+.cursor.active .cursorLabel {
+  @apply visible transform scale-100;
+}

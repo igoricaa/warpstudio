@@ -66,16 +66,11 @@ export default async function Home() {
             key={index}
             className={`${index === 0 ? 'w-full' : videosProps[index]} relative h-full group`}
           >
-            <div
-              className={`${index === 0 && `${videosProps[index]} relative mx-auto`}`}
-            >
-              <div className='absolute top-9 left-9 z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300'>
-                <h2 className='text-white text-5xl font-medium'>
-                  {project.title}
-                </h2>
-              </div>
-              <VideoPlayer project={modifiedProject} index={index} />
-            </div>
+            <VideoPlayer
+              project={modifiedProject}
+              index={index}
+              containerClassName={`${videosProps[index]}`}
+            />
 
             {index === 0 && (
               <div>
