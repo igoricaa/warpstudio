@@ -103,6 +103,7 @@ const VideoPlayer = ({
         preload={[0].includes(index) ? 'auto' : 'none'}
         poster={project.image.url}
         playsInline
+        disablePictureInPicture
         muted
         loop
         metadata={{
@@ -112,7 +113,7 @@ const VideoPlayer = ({
         controls={false}
         className={`max-h-full aspect-[${project.video.aspectRatio}] w-full ${className}`}
       />
-      <CustomCursor isActive={isHovered} text='Pogledaj video' />
+      <CustomCursor isActive={isHovered} text='PLAY' />
     </div>
   );
 };

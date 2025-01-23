@@ -8,11 +8,11 @@ const Header = () => {
     <header className='absolute top-0 w-screen px-side h-24 sm:h-32 lg:h-40 flex justify-between items-center '>
       <div className='relative'>
         <Link href='/'>
-          <Logo className='h-auto w-24 sm:w-36 lg:w-52' />
+          <Logo className='h-auto w-24 sm:w-36 lg:w-44' />
         </Link>
       </div>
 
-      <div className='flex items-center gap-4 sm:gap-8 lg:gap-10 text-foreground font-medium text-xl sm:text-2xl lg:text-3xl'>
+      <div className='flex items-center gap-4 sm:gap-6 text-foreground font-medium text-lg sm:text-2xl'>
         <MenuItem />
         <ThemeSwitcher />
       </div>
