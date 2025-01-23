@@ -47,7 +47,7 @@
 
 .cursor,
 .cursorLabel {
-  @apply w-32 h-32 rounded-full bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] text-white fixed z-20 flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
+  @apply w-32 h-32 rounded-full bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] text-white fixed z-20 hidden lg:flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
 }
 
 .cursorLabel {

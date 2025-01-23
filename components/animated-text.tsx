@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 const AnimatedText = ({
   children,
@@ -27,7 +27,7 @@ const AnimatedText = ({
           );
 
           const scrolledPast =
-            container.getBoundingClientRect().top < window.innerHeight / 2;
+            container.getBoundingClientRect().bottom < window.innerHeight / 2;
 
           wordElements.forEach((word, index) => {
             const start = index / words.length;
@@ -50,12 +50,13 @@ const AnimatedText = ({
       },
       {
         threshold: Array.from({ length: 100 }, (_, i) => i / 100),
-        rootMargin: '-30% 0px',
+        rootMargin: window.matchMedia('(max-width: 480px)')
+          ? `300px 0px -${window.innerHeight * 0.4}px 0px`
+          : '-30% 0px',
       }
     );
 
     observer.observe(containerRef.current);
-
     return () => {
       observer.disconnect();
     };
@@ -64,7 +65,7 @@ const AnimatedText = ({
   return (
     <p
       ref={containerRef}
-      className={`flex justify-center flex-wrap mx-auto max-w-[1440px] text-foreground ${className}`}
+      className={`flex justify-center flex-wrap mx-auto max-w-7xl text-foreground ${className}`}
     >
       {words.map((word, index) => (
         <Word key={index}>{word}</Word>
@@ -75,7 +76,7 @@ const AnimatedText = ({
 
 const Word = ({ children }: { children: string }) => {
   return (
-    <span className='relative mr-3 mt-2 word-wrapper'>
+    <span className='relative mr-2 mt-1 lg:mr-3 lg:mt-2 word-wrapper'>
       <span className='absolute opacity-20'>{children}</span>
       <span className='motion-word'>{children}</span>
     </span>

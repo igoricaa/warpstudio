@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import { useTheme } from 'next-themes';
 
 import Moon from './ui/icons/moon';
@@ -23,15 +22,13 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className='relative w-6 h-6 flex items-center justify-center'
+      className='relative w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center'
     >
-      {/* <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-      <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' /> */}
       <Sun
-        className={`h-6 w-6 transition-all ${theme === 'dark' ? ' scale-0' : 'scale-100'}`}
+        className={`h-5 sm:h-6 w-5 sm:w-6 transition-all ${theme === 'dark' ? ' scale-0' : 'scale-100'}`}
       />
       <Moon
-        className={`absolute h-6 w-6 transition-all ${theme === 'dark' ? 'scale-100' : ' scale-0'}`}
+        className={`absolute h-5 sm:h-6 w-5 sm:w-6 transition-all ${theme === 'dark' ? 'scale-100' : ' scale-0'}`}
       />
     </button>
   );

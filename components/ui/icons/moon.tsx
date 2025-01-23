@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 const MoonIcon: React.FC<React.SVGProps<SVGElement>> = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
