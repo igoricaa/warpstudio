@@ -90,21 +90,24 @@ const VideoPlayer = ({
   };
 
   useEffect(() => {
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener(
+    [
+      'fullscreenchange',
+      'webkitfullscreenchange',
+      'mozfullscreenchange',
+      'msfullscreenchange',
       'onwebkitfullscreenchange',
-      handleFullscreenChange
+    ].forEach((eventType) =>
+      document.addEventListener(eventType, handleFullscreenChange)
     );
     return () => {
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      document.removeEventListener(
+      [
+        'fullscreenchange',
         'webkitfullscreenchange',
-        handleFullscreenChange
-      );
-      document.removeEventListener(
-        'webkitfullscreenchange',
-        handleFullscreenChange
+        'mozfullscreenchange',
+        'msfullscreenchange',
+        'onwebkitfullscreenchange',
+      ].forEach((eventType) =>
+        document.removeEventListener(eventType, handleFullscreenChange)
       );
     };
   }, []);
