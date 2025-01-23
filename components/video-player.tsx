@@ -30,6 +30,7 @@ const VideoPlayer = ({
 }) => {
   const playerRef = useRef<any | null>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   if (!project.video.playbackId) {
     return null;
@@ -51,24 +52,20 @@ const VideoPlayer = ({
 
   const handleVideoClick = async (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
-    console.log('im in');
     const player = playerRef.current;
 
     if (!player) return;
 
-    const isFullscreen = document.fullscreenElement === player;
-
     if (!isFullscreen) {
-      console.log('im in fullscreen');
       if (player.requestFullscreen) {
-        console.log('im in requestFullscreen');
         await player.requestFullscreen();
+        setIsFullscreen(true);
       } else if (player.webkitRequestFullscreen) {
-        console.log('im in webkitRequestFullscreen');
         await player.webkitRequestFullscreen();
+        setIsFullscreen(true);
       } else if (player.webkitEnterFullScreen) {
-        console.log('im in webkitEnterFullScreen');
         await player.webkitEnterFullScreen();
+        setIsFullscreen(true);
       } else {
         console.error('Fullscreen API is not supported on this browser.');
       }
@@ -79,8 +76,6 @@ const VideoPlayer = ({
     const player = playerRef.current;
 
     if (!player) return;
-
-    const isFullscreen = document.fullscreenElement === player;
 
     if (isFullscreen) {
       player.controls = true;
@@ -104,7 +99,6 @@ const VideoPlayer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={(event) => handleVideoClick(event)}
-      // onTouchEnd={}
     >
       <div className='absolute top-4 left-4 sm:top-8 sm:left-8 lg:top-9 lg:left-9 z-10 lg:group-hover:opacity-100 lg:opacity-0 lg:transition-opacity lg:duration-300'>
         <h2 className='text-white text-3xl sm:text-4xl lg:text-5xl font-medium'>
