@@ -61,12 +61,13 @@ export default async function Home() {
           },
         };
 
+        console.log(modifiedProject);
+
         return (
           <div
             key={index}
             className={`${index === 0 ? 'w-full' : videosProps[index]} relative h-full group`}
           >
-            <div className='w-full aspect-video bg-black'>test</div>
             <VideoPlayer
               project={modifiedProject}
               index={index}
