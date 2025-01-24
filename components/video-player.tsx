@@ -3,19 +3,7 @@
 import MuxVideo from '@mux/mux-video-react';
 import { useEffect, useRef, useState } from 'react';
 import CustomCursor from './cursor/custom-cursor';
-
-type Project = {
-  _id: string;
-  title: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-  video: {
-    playbackId: string;
-    aspectRatio: string;
-  };
-};
+import { Project } from '@/utils/types';
 
 const VideoPlayer = ({
   project,
@@ -78,7 +66,6 @@ const VideoPlayer = ({
     if (!player) return;
 
     const isFullscreenWebkit = player.webkitDisplayingFullscreen;
-    console.log('fullscreenwebkit: ', isFullscreenWebkit);
 
     if (isFullscreen || isFullscreenWebkit) {
       player.controls = true;

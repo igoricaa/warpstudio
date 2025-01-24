@@ -1,19 +1,7 @@
 import AnimatedText from '@/components/animated-text';
 import VideoPlayer from '@/components/video-player';
 import { sanityFetch } from '@/sanity/lib/client';
-
-type Project = {
-  _id: string;
-  title: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-  video: {
-    playbackId: string;
-    aspectRatio: string;
-  };
-};
+import { Project } from '@/utils/types';
 
 const videosProps: { [key: number]: string } = {
   0: 'w-full lg:w-9/12',
@@ -60,8 +48,6 @@ export default async function Home() {
             aspectRatio: project.video.aspectRatio.replace(':', '/'),
           },
         };
-
-        console.log(modifiedProject);
 
         return (
           <div
