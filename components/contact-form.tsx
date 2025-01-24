@@ -23,7 +23,7 @@ export function ContactForm({ className }: { className?: string }) {
   );
 
   return (
-    <div className={`w-full max-w-xl ${className}`}>
+    <div className={`w-full lg:max-w-xl ${className}`}>
       <div>
         {/* <h2 className='text-3xl font-medium'>Let us know what do you need.</h2> */}
         {/* <p className='text-xl mt-4'>

@@ -2,16 +2,18 @@ import { ContactForm } from '@/components/contact-form';
 
 const Contact = async () => {
   return (
-    <main className='max-w-7xl mx-auto flex flex-wrap justify-between gap-x-16 px-side pt-28 sm:pt-44 lg:pt-48 pb-28 sm:pb-36 lg:pb-40'>
-      <div className='w-full basis-full mb-20'>
-        <h1 className='text-5xl font-medium underline-partial'>How can we help?</h1>
-        <p className='text-xl mt-7'>
+    <main className='max-w-7xl mx-auto flex flex-col lg:flex-row flex-wrap justify-between gap-x-16 px-side pt-28 sm:pt-44 lg:pt-48 pb-24 sm:pb-36 lg:pb-40'>
+      <div className='w-full basis-full mb-10 lg:mb-20'>
+        <h1 className='text-4xl lg:text-5xl font-medium underline-partial'>
+          How can we help?
+        </h1>
+        <p className='text-lg sm:text-xl mt-7'>
           Need help with your project? We&apos;re here to assist you.
         </p>
       </div>
-      <div className=''>
-        <div className=''>
-          <h2 className='text-xl sm:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 lg:mb-4'>
+      <div>
+        <div>
+          <h2 className='text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 lg:mb-4'>
             Get in touch with us
           </h2>
           <a
@@ -47,7 +49,7 @@ const Contact = async () => {
           </div>
         </div>
       </div>
-      <ContactForm />
+      <ContactForm className='mt-10 lg:mt-0' />
     </main>
   );
 };
