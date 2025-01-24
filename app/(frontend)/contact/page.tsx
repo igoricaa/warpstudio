@@ -17,10 +17,10 @@ const Contact = async () => {
             Get in touch with us
           </h2>
           <a
-            href='mailto:office@warpstudio.rs'
+            href='mailto:lazar@warpstudio.rs'
             className='text-base lg:text-xl underline-link'
           >
-            office@warpstudio.rs
+            lazar@warpstudio.rs
           </a>
         </div>
         <div className='mt-1 sm:mt-2'>

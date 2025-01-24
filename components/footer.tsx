@@ -9,10 +9,10 @@ const Footer = () => {
           Get in touch
         </h2>
         <a
-          href='mailto:office@warpstudio.rs'
+          href='mailto:lazar@warpstudio.rs'
           className='text-lg lg:text-2xl underline-link'
         >
-          office@warpstudio.rs
+          lazar@warpstudio.rs
         </a>
         <a
           href='/contact'

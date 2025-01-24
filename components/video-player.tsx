@@ -4,6 +4,7 @@ import MuxVideo from '@mux/mux-video-react';
 import { useEffect, useRef, useState } from 'react';
 import CustomCursor from './cursor/custom-cursor';
 import { Project } from '@/utils/types';
+import InViewWrapper from './inview-wrapper';
 
 const VideoPlayer = ({
   project,
@@ -63,9 +64,10 @@ const VideoPlayer = ({
 
     if (!player) return;
 
-    const isFullscreenWebkit = player.webkitDisplayingFullscreen;
+    const isFullscreenLocal =
+      player.webkitDisplayingFullscreen || document.fullscreenElement;
 
-    if (isFullscreen || isFullscreenWebkit) {
+    if (isFullscreen || isFullscreenLocal) {
       player.controls = true;
       player.muted = false;
     } else {
@@ -99,7 +101,7 @@ const VideoPlayer = ({
 
   return (
     <div
-      className='cursor-pointer'
+      className='w-full max-w-7xl mx-auto h-full relative group cursor-pointer'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={(event) => handleVideoClick(event)}
@@ -109,23 +111,25 @@ const VideoPlayer = ({
           {project.title}
         </h2>
       </div>
-      <MuxVideo
-        ref={playerRef}
-        playbackId={project.video.playbackId}
-        minResolution='1080p'
-        preload={[0].includes(index) ? 'auto' : 'none'}
-        poster={project.image.url}
-        playsInline
-        disablePictureInPicture
-        muted
-        loop
-        metadata={{
-          video_id: project._id,
-          video_title: project.title,
-        }}
-        controls={false}
-        className={`max-h-full aspect-[${project.video.aspectRatio}] w-full ${className}`}
-      />
+      <InViewWrapper>
+        <MuxVideo
+          ref={playerRef}
+          playbackId={project.video.playbackId}
+          minResolution='1080p'
+          preload={[0].includes(index) ? 'auto' : 'none'}
+          poster={project.image.url}
+          playsInline
+          disablePictureInPicture
+          muted
+          loop
+          metadata={{
+            video_id: project._id,
+            video_title: project.title,
+          }}
+          controls={false}
+          className={`max-h-full aspect-[${project.video.aspectRatio}] w-full ${className}`}
+        />
+      </InViewWrapper>
       <CustomCursor isActive={isHovered} text='PLAY' />
     </div>
   );

@@ -1,5 +1,4 @@
 import AnimatedText from '@/components/animated-text';
-import InViewWrapper from '@/components/inview-wrapper';
 import VideoPlayer from '@/components/video-player';
 import { sanityFetch } from '@/sanity/lib/client';
 import { Project } from '@/utils/types';
@@ -59,14 +58,7 @@ export default async function Home() {
           },
         };
 
-        return (
-          <InViewWrapper
-            key={index}
-            className={`w-full max-w-7xl mx-auto h-full relative group`}
-          >
-            <VideoPlayer project={modifiedProject} index={index} />
-          </InViewWrapper>
-        );
+        return <VideoPlayer key={index} project={modifiedProject} index={index} />;
       })}
     </main>
   );
