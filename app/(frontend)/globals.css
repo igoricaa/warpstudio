@@ -4,15 +4,21 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #000;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    /* [linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] */
+    --gradient: linear-gradient(93deg, #c84159, #6697d0);
     --font-exo2: 'Exo 2', sans-serif;
     --padding-side: 5%;
   }
 
   .dark {
-    --background: #000;
-    --foreground: #fff;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
   }
 }
 @layer base {
@@ -38,16 +44,16 @@
 }
 
 .underline-partial {
-  @apply w-fit relative before:content-[""] before:absolute before:-bottom-2 before:-left-[0.3rem] before:w-[calc(50%)] before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10;
+  @apply w-fit relative before:content-[""] before:absolute before:-bottom-2 before:-left-[0.3rem] before:w-[calc(50%)] before:h-[2px] before:bg-gradient before:z-10;
 }
 
 .underline-link {
-  @apply w-fit relative before:content-[""] before:absolute before:-bottom-1 before:-left-2 before:w-0 hover:before:w-[calc(100%+1rem)] before:transition-all before:h-[2px] before:bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] before:z-10;
+  @apply w-fit relative before:content-[""] before:absolute before:-bottom-1 before:-left-2 before:w-0 hover:before:w-[calc(100%+1rem)] before:transition-all before:h-[2px] before:bg-gradient before:z-10;
 }
 
 .cursor,
 .cursorLabel {
-  @apply w-32 h-32 rounded-full bg-[linear-gradient(93deg,#C84159_0%,_#6697D0_100%)] text-white fixed z-20 hidden lg:flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
+  @apply w-32 h-32 rounded-full bg-gradient text-white fixed z-20 hidden lg:flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
 }
 
 .cursorLabel {

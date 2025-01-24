@@ -12,6 +12,11 @@ export const projectId = assertValue(
   'Missing environment variable: SANITY_PROJECT_ID'
 );
 
+export const recaptchaSiteKey = assertValue(
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+  'Missing environment variable: RECAPTCHA_SITE_KEY'
+);
+
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage);

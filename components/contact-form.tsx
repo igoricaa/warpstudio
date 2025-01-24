@@ -1,0 +1,132 @@
+'use client';
+
+import { contactFormAction } from '@/lib/actions';
+import { recaptchaSiteKey } from '@/sanity/env';
+import Script from 'next/script';
+import { useActionState, useState } from 'react';
+
+declare const grecaptcha: any;
+
+const initialState = {
+  success: false,
+  errors: null,
+};
+
+const inputClasses =
+  'group-data-[invalid=true]/field:border-destructive focus-visible:group-data-[invalid=true]/field:ring-destructive bg-transparent border-b border-foreground pb-2 px-1 outline-none';
+
+export function ContactForm({ className }: { className?: string }) {
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [state, formAction, pending] = useActionState(
+    contactFormAction,
+    initialState
+  );
+
+  return (
+    <div className={`w-full max-w-xl ${className}`}>
+      <div>
+        {/* <h2 className='text-3xl font-medium'>Let us know what do you need.</h2> */}
+        {/* <p className='text-xl mt-4'>
+          Need help with your project? We&apos;re here to assist you.
+        </p> */}
+      </div>
+      {/* className='mt-12' */}
+      <form action={formAction}>
+        <div className='flex flex-col gap-6'>
+          {state.success ? (
+            <p className='text-muted-foreground flex items-center gap-2 text-sm'>
+              Your message has been sent. Thank you.
+            </p>
+          ) : null}
+          <div
+            className='group/field grid gap-2'
+            data-invalid={!!state.errors?.name}
+          >
+            <input
+              id='name'
+              name='name'
+              placeholder='Name'
+              className={inputClasses}
+              aria-invalid={!!state.errors?.name}
+              aria-errormessage='error-name'
+            />
+            {state.errors?.name && (
+              <p id='error-name' className='text-destructive text-sm'>
+                {state.errors.name}
+              </p>
+            )}
+          </div>
+          <div
+            className='group/field grid gap-2'
+            data-invalid={!!state.errors?.email}
+          >
+            <input
+              id='email'
+              name='email'
+              placeholder='Email'
+              className={inputClasses}
+              aria-invalid={!!state.errors?.email}
+              aria-errormessage='error-email'
+            />
+            {state.errors?.email && (
+              <p id='error-email' className='text-destructive text-sm'>
+                {state.errors.email}
+              </p>
+            )}
+          </div>
+          <div
+            className='group/field grid gap-2'
+            data-invalid={!!state.errors?.message}
+          >
+            <textarea
+              id='message'
+              name='message'
+              placeholder='Type your message here...'
+              rows={5}
+              className={`resize-none ${inputClasses}`}
+              aria-invalid={!!state.errors?.message}
+              aria-errormessage='error-message'
+            />
+            {state.errors?.message && (
+              <p id='error-message' className='text-destructive text-sm'>
+                {state.errors.message}
+              </p>
+            )}
+          </div>
+
+          <input
+            type='hidden'
+            id='recaptchaResponse'
+            name='recaptchaResponse'
+            value={captchaToken}
+          />
+        </div>
+        <div>
+          <button
+            type='submit'
+            className='inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-foreground hover:bg-foreground/80 text-background hover:bg-foreground/90 h-12 rounded-md px-6 mt-10'
+            disabled={pending}
+          >
+            {pending ? 'Sending...' : 'Send Message'}
+          </button>
+        </div>
+      </form>
+      <Script
+        id='recaptcha-load'
+        strategy='lazyOnload'
+        src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+        onLoad={() => {
+          grecaptcha.ready(function () {
+            grecaptcha
+              .execute(recaptchaSiteKey, {
+                action: 'contact',
+              })
+              .then(function (token: string) {
+                setCaptchaToken(token);
+              });
+          });
+        }}
+      />
+    </div>
+  );
+}

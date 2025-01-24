@@ -10,3 +10,10 @@ export type Project = {
     aspectRatio: string;
   };
 };
+
+export type FormFields = {
+  name: string;
+  email: string;
+  message: string;
+  recaptcha_token: string;
+};

@@ -39,7 +39,7 @@ export default async function Home() {
   const projects = await getProject();
 
   return (
-    <main className='flex flex-wrap lg:gap-x-10 gap-y-4 sm:gap-y-8 lg:gap-y-28 auto-rows-fr px-side pt-28 sm:pt-44 lg:pt-48'>
+    <main className='flex flex-wrap lg:gap-x-10 gap-y-4 sm:gap-y-8 lg:gap-y-28 px-side pt-28 sm:pt-44 lg:pt-48 pb-28 sm:pb-36 lg:pb-40'>
       {projects.map((project: Project, index: number) => {
         const modifiedProject = {
           ...project,

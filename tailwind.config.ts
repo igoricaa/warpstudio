@@ -12,8 +12,16 @@ export default {
         exo2: ['var(--font-exo2)'],
       },
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        gradientMain: 'var(--gradient)',
+      },
+      backgroundImage: {
+        gradient: 'var(--gradient)',
       },
       padding: {
         side: 'var(--padding-side)',

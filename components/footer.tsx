@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className='px-side py-24 sm:py-32 lg:py-52 grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-12 sm:gap-y-16 lg:gap-y-20'>
+    <footer className='px-side py-20 sm:py-28 lg:py-32 grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-12 sm:gap-y-16 lg:gap-y-20 border-t border-black/30'>
       <h1 className='col-span-full text-3xl sm:text-4xl lg:text-5xl font-medium underline-partial'>
         Warp Studio
       </h1>
