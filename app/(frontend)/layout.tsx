@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={`${exo2.variable} antialiased`}>
         <ThemeProvider
-          defaultTheme='light'
+          defaultTheme='dark'
           attribute='class'
           disableTransitionOnChange
         >

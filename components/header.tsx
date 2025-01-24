@@ -13,6 +13,13 @@ const Header = () => {
       </div>
 
       <div className='flex items-center gap-4 sm:gap-6 text-foreground font-medium text-lg sm:text-2xl'>
+        <a
+          href='https://warpstudio.passgallery.com/client'
+          target='_blank'
+          className='uppercase underline-link'
+        >
+          Gallery
+        </a>
         <MenuItem />
         <ThemeSwitcher />
       </div>
