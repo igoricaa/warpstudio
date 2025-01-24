@@ -34,7 +34,7 @@ export default async function Home() {
         _id,
         title,
         image {
-          'url': asset->url,
+          'url': asset->url + "?auto=format",
           alt
         },
         video {

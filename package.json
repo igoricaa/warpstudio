@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@mux/mux-video-react": "^0.24.2",
-    "@sanity/image-url": "1",
     "lenis": "^1.1.20",
     "next": "15.1.5",
     "next-sanity": "9",
