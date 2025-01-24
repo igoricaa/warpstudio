@@ -19,6 +19,7 @@ export default async function Home() {
           'playbackId': video.asset->playbackId,
           'aspectRatio': video.asset->data.aspect_ratio
         },
+        order
       }`,
       tags: ['project'],
     });
@@ -27,6 +28,8 @@ export default async function Home() {
   }
 
   const projects = await getProject();
+
+  projects.sort((a, b) => a.order - b.order);
 
   return (
     <main className='flex flex-wrap lg:gap-x-10 gap-y-4 sm:gap-y-8 lg:gap-y-28 px-side pt-28 sm:pt-44 lg:pt-48 pb-28 sm:pb-36 lg:pb-40'>
@@ -58,7 +61,9 @@ export default async function Home() {
           },
         };
 
-        return <VideoPlayer key={index} project={modifiedProject} index={index} />;
+        return (
+          <VideoPlayer key={index} project={modifiedProject} index={index} />
+        );
       })}
     </main>
   );

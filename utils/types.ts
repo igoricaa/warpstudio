@@ -9,6 +9,7 @@ export type Project = {
     playbackId: string;
     aspectRatio: string;
   };
+  order: number;
 };
 
 export type FormFields = {

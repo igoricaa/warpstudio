@@ -47,47 +47,10 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
     }),
-    // defineField({
-    //   title: 'Desktop Order',
-    //   name: 'desktopOrder',
-    //   type: 'object',
-    //   fields: [
-    //     {
-    //       name: 'column',
-    //       type: 'number',
-    //       title: 'Column',
-    //       initialValue: 1,
-    //       options: { list: [1, 2, 3] },
-    //       validation: (rule) => rule.required(),
-    //     },
-    //     {
-    //       name: 'columnOrder',
-    //       type: 'number',
-    //       title: 'Column Order',
-    //       validation: (rule) => rule.required(),
-    //     },
-    //   ],
-    // }),
-    // defineField({
-    //   title: 'Mobile Order',
-    //   name: 'mobileOrder',
-    //   type: 'object',
-    //   fields: [
-    //     {
-    //       name: 'column',
-    //       type: 'number',
-    //       title: 'Column',
-    //       initialValue: 1,
-    //       options: { list: [1, 2] },
-    //       validation: (rule) => rule.required(),
-    //     },
-    //     {
-    //       name: 'columnOrder',
-    //       type: 'number',
-    //       title: 'Column Order',
-    //       validation: (rule) => rule.required(),
-    //     },
-    //   ],
-    // }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    }),
   ],
 });
