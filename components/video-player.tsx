@@ -9,12 +9,10 @@ const VideoPlayer = ({
   project,
   index,
   className,
-  containerClassName,
 }: {
   project: Project;
   index: number;
   className?: string;
-  containerClassName?: string;
 }) => {
   const playerRef = useRef<any | null>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -101,7 +99,7 @@ const VideoPlayer = ({
 
   return (
     <div
-      className={`${index === 0 && `${containerClassName} relative mx-auto`} cursor-pointer`}
+      className='cursor-pointer'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={(event) => handleVideoClick(event)}
