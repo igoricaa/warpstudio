@@ -1,17 +1,8 @@
 import AnimatedText from '@/components/animated-text';
+import InViewWrapper from '@/components/inview-wrapper';
 import VideoPlayer from '@/components/video-player';
 import { sanityFetch } from '@/sanity/lib/client';
 import { Project } from '@/utils/types';
-
-// const videosProps: { [key: number]: string } = {
-//   0: 'w-full lg:w-9/12 lg:mx-auto',
-//   1: 'w-full lg:w-8/12',
-//   2: 'w-full lg:w-3/12 lg:self-end',
-//   3: 'w-full lg:w-10/12 lg:mx-auto',
-//   4: 'w-full lg:w-5/12',
-//   5: 'w-full lg:w-4/12 lg:self-end',
-//   6: 'w-full lg:w-10/12 lg:ml-auto',
-// };
 
 export default async function Home() {
   async function getProject() {
@@ -69,12 +60,12 @@ export default async function Home() {
         };
 
         return (
-          <div
+          <InViewWrapper
             key={index}
             className={`w-full max-w-7xl mx-auto h-full relative group`}
           >
             <VideoPlayer project={modifiedProject} index={index} />
-          </div>
+          </InViewWrapper>
         );
       })}
     </main>
