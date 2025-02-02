@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1750px',
+      },
       fontFamily: {
         exo2: ['var(--font-exo2)'],
       },
@@ -35,9 +38,23 @@ export default {
             backgroundSize: '100% 100%',
           },
         },
+        scrollDown: {
+          '0%': {
+            opacity: '0',
+            transform: 'rotate(45deg) translate(-20px, -20px)',
+          },
+          '50%': {
+            opacity: '1',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'rotate(45deg) translate(20px, 20px)',
+          },
+        },
       },
       animation: {
         scrollReveal: 'scrollReveal linear forwards',
+        scrollDown: 'scrollDown 2s infinite',
       },
     },
   },
