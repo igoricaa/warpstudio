@@ -13,9 +13,27 @@ const exo2 = Exo_2({
 });
 
 export const metadata: Metadata = {
-  title: 'Warp Studio',
+  metadataBase: new URL('https://warpstudio.rs'),
+
+  title: {
+    default: 'Warp Studio',
+    template: '%s | Warp Studio',
+  },
   description:
     'Warp Studio is a dynamic creative studio specializing in video, photo and animation production.',
+  openGraph: {
+    title: 'Warp Studio',
+    description:
+      'Warp Studio is a dynamic creative studio specializing in video, photo and animation production.',
+    url: 'https://warpstudio.rs',
+    siteName: 'Warp Studio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Warp Studio',
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({
