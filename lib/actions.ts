@@ -37,6 +37,7 @@ export async function contactFormAction(
   prevState: any,
   formData: FormData
 ): Promise<{
+  defaultValues: FormFields;
   success: boolean;
   errors: Partial<Record<keyof FormFields, string>> | null;
 }> {
@@ -51,6 +52,7 @@ export async function contactFormAction(
 
   if (Object.keys(errors).length > 0) {
     return {
+      defaultValues: data,
       success: false,
       errors,
     };
@@ -59,6 +61,7 @@ export async function contactFormAction(
   const recaptchaSuccess = await verifyRecaptcha(data.recaptcha_token);
   if (!recaptchaSuccess) {
     return {
+      defaultValues: data,
       success: false,
       errors: { recaptcha_token: 'Invalid reCAPTCHA' },
     };
@@ -103,6 +106,7 @@ export async function contactFormAction(
     });
 
   return {
+    defaultValues: data,
     success: true,
     errors: null,
   };
