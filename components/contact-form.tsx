@@ -27,11 +27,6 @@ export function ContactForm({ className }: { className?: string }) {
     <div className={`w-full lg:max-w-xl ${className}`}>
       <form action={formAction}>
         <div className='flex flex-col gap-6'>
-          {state.success ? (
-            <p className='text-muted-foreground flex items-center gap-2 text-sm'>
-              Your message has been sent. Thank you.
-            </p>
-          ) : null}
           <div
             className='group/field grid gap-2'
             data-invalid={!!state.errors?.name}
@@ -98,14 +93,26 @@ export function ContactForm({ className }: { className?: string }) {
             value={captchaToken}
           />
         </div>
-        <div>
+        <div className='flex items-center gap-14 mt-10'>
           <button
             type='submit'
-            className='inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-foreground text-background hover:bg-foreground/90 h-12 rounded-md px-6 mt-10'
+            className='inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-foreground text-background hover:bg-foreground/90 h-12 rounded-md px-6'
             disabled={pending}
           >
             {pending ? 'Sending...' : 'Send Message'}
           </button>
+          {state.success ? (
+            <p className='text-muted-foreground flex items-center gap-2'>
+              Your message has been sent. Thank you.
+            </p>
+          ) : null}
+          {state.errors &&
+            (state.errors.recaptcha_token || state.errors.custom) && (
+              <p className='text-destructive flex items-center gap-2'>
+                {state.errors.custom ||
+                  'Something went wrong, please try again.'}
+              </p>
+            )}
         </div>
       </form>
       <Script

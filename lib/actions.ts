@@ -39,7 +39,7 @@ export async function contactFormAction(
 ): Promise<{
   defaultValues: FormFields;
   success: boolean;
-  errors: Partial<Record<keyof FormFields, string>> | null;
+  errors: any;
 }> {
   const data: FormFields = {
     name: formData.get('name') as string,
@@ -88,25 +88,40 @@ export async function contactFormAction(
     .then((result) => {
       if (!result.success) {
         return {
+          defaultValues: data,
           success: false,
           errors: result.error,
         };
       }
 
       return {
+        defaultValues: {
+          name: '',
+          email: '',
+          message: '',
+          recaptcha_token: data.recaptcha_token,
+        },
         success: true,
         errors: null,
       };
     })
     .catch((error: any) => {
       return {
+        defaultValues: data,
         success: false,
-        errors: error,
+        errors: {
+          custom: error.message,
+        },
       };
     });
 
   return {
-    defaultValues: data,
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+      recaptcha_token: data.recaptcha_token,
+    },
     success: true,
     errors: null,
   };
