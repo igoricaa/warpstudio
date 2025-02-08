@@ -12,6 +12,37 @@ export type Project = {
   order: number;
 };
 
+export type AboutUs = {
+  title: string;
+  aboutUsText: {
+    title: string;
+    text: {
+      paragraph: string;
+    }[];
+  };
+  logos: {
+    url: string;
+    alt: string;
+  }[];
+};
+
+export type Services = {
+  services: {
+    title: string;
+    description: string;
+  }[];
+  photoPortfolio: {
+    title: string;
+    projects: {
+      title: string;
+      galleryLink: string;
+      coverImage: {
+        url: string;
+        alt: string;
+      };
+    }[];
+  };
+};
 export type FormFields = {
   name: string;
   email: string;
