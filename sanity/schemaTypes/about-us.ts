@@ -28,12 +28,12 @@ export default defineType({
           type: 'array',
           validation: (rule) => rule.min(1),
           of: [
-            {
+            defineField({
               name: 'paragraph',
               title: 'Paragraph',
-              type: 'string',
+              type: 'text',
               validation: (rule) => rule.required(),
-            },
+            }),
           ],
         }),
       ],

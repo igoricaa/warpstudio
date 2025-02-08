@@ -16,9 +16,7 @@ export type AboutUs = {
   title: string;
   aboutUsText: {
     title: string;
-    text: {
-      paragraph: string;
-    }[];
+    text: string[];
   };
   logos: {
     url: string;
