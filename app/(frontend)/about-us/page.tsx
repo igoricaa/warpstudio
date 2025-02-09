@@ -30,7 +30,7 @@ export default async function AboutUs() {
   const aboutUs = await getAboutUs();
 
   return (
-    <main className='flex flex-wrap pt-32 sm:pt-44 lg:pt-56 pb-20 sm:pb-36 lg:pb-20'>
+    <main className='flex flex-wrap pt-32 sm:pt-44 lg:pt-56 pb-8 sm:pb-36 lg:pb-20'>
       <div className='w-full lg:mx-auto px-side '>
         <AnimatedText className='text-3xl sm:text-5xl lg:text-6xl 3xl:text-7xl'>
           {aboutUs.aboutUsText.title}
