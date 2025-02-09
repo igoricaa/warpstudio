@@ -75,6 +75,7 @@ export default async function AboutUs() {
                   src={logo.url}
                   alt={logo.alt}
                   fill
+                  sizes='(max-width: 480px) 96px, 128px'
                   className='object-cover'
                 />
               </div>

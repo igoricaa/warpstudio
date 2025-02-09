@@ -121,6 +121,7 @@ const ProjectCard = ({
           src={project.coverImage.url}
           alt={project.title}
           fill
+          sizes='(max-width: 480px) 100vw, (max-width: 1024) 100vw, 520px'
           className={`object-cover group-hover:scale-110 transition-all duration-300`}
         />
         <h2 className='text-xl sm:text-3xl lg:text-3xl 3xl:text-4xl absolute z-20 top-5 left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
