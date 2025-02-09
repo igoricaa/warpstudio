@@ -27,28 +27,28 @@ export type AboutUs = {
 };
 
 export type Services = {
+  title: string;
   services: {
     title: string;
     description: string;
   }[];
   photoPortfolio: {
     title: string;
-    projects: {
-      title: string;
-      galleryLink: string;
-      coverImage: {
-        desktopImage: {
-          url: string;
-          alt: string;
-        };
-        mobileImage?: {
-          url: string;
-          alt: string;
-        };
-      };
-    }[];
+    projects: PhotographyProject[];
   };
 };
+
+export type PhotographyProject = {
+  title: string;
+  galleryLink: string;
+  coverImage: {
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+};
+
 export type FormFields = {
   name: string;
   email: string;

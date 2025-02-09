@@ -44,7 +44,7 @@
 }
 
 .underline-partial {
-  @apply w-fit relative before:content-[""] before:absolute before:-bottom-2 before:-left-[0.3rem] before:w-[calc(50%)] before:h-[2px] before:bg-gradient before:z-10;
+  @apply w-fit relative before:content-[""] before:absolute before:-bottom-2 before:left-0 before:w-[calc(50%)] before:h-[2px] before:bg-gradient before:z-10;
 }
 
 .underline-link {

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ThemeSwitcher } from './theme-switcher';
 import Logo from './ui/icons/logo';
-import MenuItem from './menu-item';
 
 const Header = () => {
   return (
@@ -13,6 +12,15 @@ const Header = () => {
       </div>
 
       <div className='flex items-center gap-4 sm:gap-6 text-foreground font-medium text-lg sm:text-2xl'>
+        <Link href='/' className='uppercase underline-link'>
+          Home
+        </Link>
+        <Link href='/about-us' className='uppercase underline-link'>
+          About Us
+        </Link>
+        <Link href='/services' className='uppercase underline-link'>
+          Services
+        </Link>
         <a
           href='https://warpstudio.passgallery.com/client'
           target='_blank'
@@ -20,7 +28,9 @@ const Header = () => {
         >
           Gallery
         </a>
-        <MenuItem />
+        <Link href='/contact' className='uppercase underline-link'>
+          Contact
+        </Link>
         <ThemeSwitcher />
       </div>
     </header>
