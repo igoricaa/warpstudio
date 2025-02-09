@@ -5,15 +5,13 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      // S.listItem()
-      //   .title('About Us')
-      //   .child(S.document().schemaType('about-us').documentId('about-us')),
+      S.listItem()
+        .title('About Us')
+        .child(S.document().schemaType('about-us').documentId('about-us')),
       S.listItem()
         .title('Services')
         .child(S.document().schemaType('services').documentId('services')),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['services'].includes(listItem.getId() || '')
+        (listItem) => !['about-us', 'services'].includes(listItem.getId() || '')
       ),
     ]);
-
-    // 'about-us'
