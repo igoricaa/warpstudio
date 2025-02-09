@@ -37,8 +37,14 @@ export type Services = {
       title: string;
       galleryLink: string;
       coverImage: {
-        url: string;
-        alt: string;
+        desktopImage: {
+          url: string;
+          alt: string;
+        };
+        mobileImage?: {
+          url: string;
+          alt: string;
+        };
       };
     }[];
   };

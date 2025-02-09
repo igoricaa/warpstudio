@@ -67,25 +67,59 @@ export default defineType({
                 defineField({
                   name: 'coverImage',
                   title: 'Cover Image',
-                  type: 'image',
+                  type: 'object',
                   fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alternative text',
-                      description: 'Important for SEO and accessiblity.',
-                      validation: (rule) => {
-                        return rule.custom((alt, context) => {
-                          if (
-                            (context.document?.picture as any)?.asset?._ref &&
-                            !alt
-                          ) {
-                            return 'Required';
-                          }
-                          return true;
-                        });
-                      },
-                    },
+                    defineField({
+                      name: 'desktopImage',
+                      title: 'Desktop Image',
+                      type: 'image',
+                      validation: (rule) => rule.required(),
+                      fields: [
+                        defineField({
+                          name: 'alt',
+                          type: 'string',
+                          title: 'Alternative text',
+                          description: 'Important for SEO and accessiblity.',
+                          validation: (rule) => {
+                            return rule.custom((alt, context) => {
+                              if (
+                                (context.document?.picture as any)?.asset
+                                  ?._ref &&
+                                !alt
+                              ) {
+                                return 'Required';
+                              }
+                              return true;
+                            });
+                          },
+                        }),
+                      ],
+                    }),
+                    defineField({
+                      name: 'mobileImage',
+                      title: 'Mobile Image',
+                      type: 'image',
+                      fields: [
+                        defineField({
+                          name: 'alt',
+                          type: 'string',
+                          title: 'Alternative text',
+                          description: 'Important for SEO and accessiblity.',
+                          validation: (rule) => {
+                            return rule.custom((alt, context) => {
+                              if (
+                                (context.document?.picture as any)?.asset
+                                  ?._ref &&
+                                !alt
+                              ) {
+                                return 'Required';
+                              }
+                              return true;
+                            });
+                          },
+                        }),
+                      ],
+                    }),
                   ],
                 }),
               ],
