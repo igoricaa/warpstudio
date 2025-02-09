@@ -1,3 +1,6 @@
+import { email, socials } from '@/data';
+import { Social } from '@/utils/types';
+
 const Footer = () => {
   return (
     <footer className='px-side py-20 sm:py-28 lg:py-32 grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-x-4 gap-y-8 sm:gap-y-16 lg:gap-y-20 border-t border-black/30'>
@@ -9,10 +12,10 @@ const Footer = () => {
           Get in touch
         </h2>
         <a
-          href='mailto:lazar@warpstudio.rs'
+          href={`mailto:${email}`}
           className='text-lg lg:text-2xl underline-link'
         >
-          lazar@warpstudio.rs
+          {email}
         </a>
         <a
           href='/contact'
@@ -26,27 +29,16 @@ const Footer = () => {
           Follow us
         </h2>
         <div className='flex flex-col gap-1 sm:gap-2'>
-          <a
-            href='https://warpstudio.passgallery.com/client'
-            target='_blank'
-            className='text-lg lg:text-2xl underline-link'
-          >
-            Gallery
-          </a>
-          <a
-            href='https://www.instagram.com/warp.studio/'
-            target='_blank'
-            className='text-lg lg:text-2xl underline-link'
-          >
-            Instagram
-          </a>
-          <a
-            href='https://vimeo.com/warpstudio'
-            target='_blank'
-            className='text-lg lg:text-2xl underline-link'
-          >
-            Vimeo
-          </a>
+          {socials.map((social: Social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target='_blank'
+              className='text-lg lg:text-2xl underline-link'
+            >
+              {social.name}
+            </a>
+          ))}
         </div>
       </div>
       <div className='order-2 sm:order-4 col-span-full sm:col-span-6 lg:w-4/6 lg:max-w-[750px]'>

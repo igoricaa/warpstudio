@@ -55,3 +55,14 @@ export type FormFields = {
   message: string;
   recaptcha_token: string;
 };
+
+export type Route = {
+  name: string;
+  path: string;
+  external?: boolean;
+};
+
+export type Social = {
+  name: string;
+  url: string;
+};
