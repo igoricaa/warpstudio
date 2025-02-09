@@ -14,6 +14,7 @@ import { structure } from './sanity/structure';
 import { muxInput } from 'sanity-plugin-mux-input';
 
 export default defineConfig({
+  title: 'Warp Studio',
   basePath: '/studio',
   projectId,
   dataset,
