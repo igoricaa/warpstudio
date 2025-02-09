@@ -1,16 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Burger from './burger';
 import { email, routes, socials } from '@/data';
 import { Route, Social } from '@/utils/types';
-import { usePathname } from 'next/navigation';
 import { ThemeSwitcher } from '../theme-switcher';
 
 const MobileMenu = ({ className }: { className: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -22,12 +20,6 @@ const MobileMenu = ({ className }: { className: string }) => {
     document.body.toggleAttribute('data-lenis-prevent', !menuOpen);
   };
 
-  //   useEffect(() => {
-  //     if (menuOpen) {
-  //       toggleMenu();
-  //     }
-  //   }, [pathname]);
-
   return (
     <div className={`${className}`}>
       <div className='flex gap-6 z-50 relative '>
@@ -36,7 +28,7 @@ const MobileMenu = ({ className }: { className: string }) => {
       </div>
 
       <div
-        className={`fixed inset-0 h-screen w-screen z-40 px-side pt-28 pb-16 bg-background flex flex-col justify-between gap-8 transition-all duration-300 ${menuOpen ? 'visible translate-x-0' : 'invisible translate-x-full'}`}
+        className={`fixed inset-0 h-svh w-screen z-40 px-side pt-28 pb-16 bg-background flex flex-col justify-between gap-8 transition-all duration-300 ${menuOpen ? 'visible translate-x-0' : 'invisible translate-x-full'}`}
       >
         <ul className='flex flex-col gap-4'>
           {routes.map((route: Route) => (
