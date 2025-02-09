@@ -8,7 +8,10 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('About Us')
         .child(S.document().schemaType('aboutUs').documentId('aboutUs')),
+      S.listItem()
+        .title('Services')
+        .child(S.document().schemaType('services').documentId('services')),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['aboutUs'].includes(listItem.getId() || '')
+        (listItem) => !['aboutUs', 'services'].includes(listItem.getId() || '')
       ),
     ]);
