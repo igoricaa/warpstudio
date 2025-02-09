@@ -28,7 +28,7 @@ const MobileMenu = ({ className }: { className: string }) => {
       </div>
 
       <div
-        className={`fixed inset-0 h-svh w-screen z-40 px-side pt-28 pb-16 bg-background flex flex-col justify-between gap-8 transition-all duration-300 ${menuOpen ? 'visible translate-x-0' : 'invisible translate-x-full'}`}
+        className={`fixed inset-0 h-svh w-screen z-40 px-side pt-28 pb-8 bg-background flex flex-col justify-between gap-8 transition-all duration-300 ${menuOpen ? 'visible translate-x-0' : 'invisible translate-x-full'}`}
       >
         <ul className='flex flex-col gap-4'>
           {routes.map((route: Route) => (
