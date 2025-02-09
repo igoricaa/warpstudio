@@ -8,5 +8,5 @@ export async function GET() {
     revalidateTag(tag);
   }
 
-  return NextResponse.json('Projects revalidated!');
+  return NextResponse.json(`Tags: ${tags} revalidated!`);
 }

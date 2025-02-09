@@ -51,10 +51,19 @@ export default {
             transform: 'rotate(45deg) translate(20px, 20px)',
           },
         },
+        slide: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-50%)',
+          },
+        },
       },
       animation: {
         scrollReveal: 'scrollReveal linear forwards',
         scrollDown: 'scrollDown 2s infinite',
+        slide: 'slide 100s linear infinite',
       },
     },
   },

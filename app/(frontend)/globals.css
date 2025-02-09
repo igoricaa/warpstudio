@@ -76,6 +76,25 @@
   .animation-delay-400 {
     animation-delay: -400ms !important;
   }
+  .pause {
+    animation-play-state: paused;
+  }
+
+  .opacitySiblings {
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+
+      & ~ * {
+        opacity: 0.3;
+      }
+    }
+
+    &:has(~ *:hover) {
+      opacity: 0.3;
+    }
+  }
 }
 
 .scrollDownArrow {
