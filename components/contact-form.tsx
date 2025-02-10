@@ -10,7 +10,7 @@ declare const grecaptcha: any;
 const inputClasses =
   'group-data-[invalid=true]/field:border-destructive focus-visible:group-data-[invalid=true]/field:ring-destructive bg-transparent border-b border-foreground pb-2 px-1 outline-none';
 
-export function ContactForm({ className }: { className?: string }) {
+export function ContactForm() {
   const [captchaToken, setCaptchaToken] = useState('');
   const [state, formAction, pending] = useActionState(contactFormAction, {
     defaultValues: {
@@ -24,7 +24,7 @@ export function ContactForm({ className }: { className?: string }) {
   });
 
   return (
-    <div className={`w-full lg:max-w-xl ${className}`}>
+    <>
       <form action={formAction}>
         <div className='flex flex-col gap-6'>
           <div
@@ -131,6 +131,6 @@ export function ContactForm({ className }: { className?: string }) {
           });
         }}
       />
-    </div>
+    </>
   );
 }
