@@ -1,4 +1,5 @@
 import AnimatedText from '@/components/animated-text';
+import InViewWrapper from '@/components/inview-wrapper';
 import { sanityFetch } from '@/sanity/lib/client';
 import type { AboutUs } from '@/utils/types';
 import Image from 'next/image';
@@ -32,17 +33,21 @@ export default async function AboutUs() {
   return (
     <main className='flex flex-wrap pt-32 sm:pt-44 lg:pt-56 pb-8 sm:pb-36 lg:pb-20'>
       <div className='w-full lg:mx-auto px-side '>
-        <AnimatedText className='text-3xl sm:text-5xl lg:text-6xl 3xl:text-7xl'>
-          {aboutUs.aboutUsText.title}
-        </AnimatedText>
+        <InViewWrapper>
+          <AnimatedText className='text-3xl sm:text-5xl lg:text-6xl 3xl:text-7xl'>
+            {aboutUs.aboutUsText.title}
+          </AnimatedText>
+        </InViewWrapper>
         {aboutUs.aboutUsText.text.map((text: string, index: number) => {
           return (
-            <AnimatedText
-              key={index}
-              className={`text-xl sm:text-3xl lg:text-3xl 3xl:text-4xl ${index === 0 ? 'mt-6 sm:mt-10' : 'mt-5 sm:mt-7'} `}
-            >
-              {text}
-            </AnimatedText>
+            <InViewWrapper key={index}>
+              <AnimatedText
+                key={index}
+                className={`text-xl sm:text-3xl lg:text-3xl 3xl:text-4xl ${index === 0 ? 'mt-6 sm:mt-10' : 'mt-5 sm:mt-7'} `}
+              >
+                {text}
+              </AnimatedText>
+            </InViewWrapper>
           );
         })}
       </div>
