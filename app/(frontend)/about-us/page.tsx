@@ -55,7 +55,7 @@ export default async function AboutUs() {
       <section className='w-full flex-col items-center justify-center overflow-hidden mt-24 sm:mt-32 lg:mt-44'>
         <InViewWrapper>
           <h2 className='text-4xl sm:text-5xl lg:text-6xl text-center'>
-            {aboutUs.logosTitle || 'Clients'}
+            {aboutUs.logosTitle}
           </h2>
         </InViewWrapper>
 
