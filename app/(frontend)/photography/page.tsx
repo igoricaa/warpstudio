@@ -9,7 +9,7 @@ export default async function Photography() {
     'use server';
 
     const photographyData: Photography = await sanityFetch({
-      query: `*[_type == "photography"] {
+      query: `*[_type == "photography"][0] {
         title,
         projects[] {
           title,
@@ -35,7 +35,13 @@ export default async function Photography() {
     !photographyData.projects ||
     photographyData.projects.length < 1
   ) {
-    return <div>No photography data found</div>;
+    return (
+      <section className='w-full h-screen flex flex-col items-center justify-center py-40'>
+        <h1 className='text-3xl sm:text-5xl lg:text-6xl 3xl:text-7xl text-center'>
+          No photography data found
+        </h1>
+      </section>
+    );
   }
 
   const { horizontalProjects, verticalProjects } =
@@ -61,7 +67,7 @@ export default async function Photography() {
       </h1>
 
       <section className='w-full flex flex-col lg:items-center justify-center mt-12 sm:mt-24 lg:mt-32'>
-        <div className='w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10 sm:mt-14 lg:mt-20'>
+        <div className='w-full grid grid-cols-1 sm:grid-cols-2 gap-4'>
           {horizontalProjects.map((project, index) => {
             return (
               <InViewWrapper
