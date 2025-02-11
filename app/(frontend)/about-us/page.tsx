@@ -15,6 +15,7 @@ export default async function AboutUs() {
           title,
           text[]
         },
+        logosTitle,
         logos[]{
           'url': asset->url,
           alt,
