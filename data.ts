@@ -14,6 +14,10 @@ export const routes: Route[] = [
     path: '/services',
   },
   {
+    name: 'Video',
+    path: '/video',
+  },
+  {
     name: 'Photography',
     path: '/photography',
   },

@@ -30,7 +30,11 @@ export default async function Photography() {
 
   const photographyData = await getPhotography();
 
-  if (!photographyData || photographyData.projects.length < 1) {
+  if (
+    !photographyData ||
+    !photographyData.projects ||
+    photographyData.projects.length < 1
+  ) {
     return <div>No photography data found</div>;
   }
 
