@@ -33,12 +33,12 @@ export default async function Home() {
 
   return (
     <main className='flex flex-wrap lg:gap-x-10 gap-y-4 sm:gap-y-8 lg:gap-y-28 px-side pt-28 sm:pt-44 lg:pt-48 pb-28 sm:pb-36 lg:pb-40'>
-      <section className='w-full mx-auto flex flex-col gap-y-4 items-center justify-center py-40 basis-full'>
+      <section className='w-full mx-auto flex flex-col gap-y-4 items-center justify-center pt-24 pb-32 lg:py-40 basis-full'>
         <InViewWrapper>
-          <h1 className='uppercase text-7xl text-center underline-partial mx-auto'>
+          <h1 className='uppercase text-5xl sm:text-6xl lg:text-7xl text-center underline-partial mx-auto'>
             Warp Studio
           </h1>
-          <h2 className='uppercase text-4xl text-center max-w-3xl mt-6'>
+          <h2 className='uppercase text-xl sm:text-3xl lg:text-4xl text-center max-w-3xl mt-6'>
             A creative studio specializing in video, photo and animation
             production.
           </h2>

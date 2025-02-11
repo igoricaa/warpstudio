@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <ul className='hidden sm:flex items-center gap-4 sm:gap-6 text-foreground font-medium text-lg sm:text-2xl'>
+      <ul className='hidden lg:flex items-center gap-4 sm:gap-6 text-foreground font-medium text-lg sm:text-2xl'>
         {routes.map((route: Route) => (
           <li key={route.name}>
             <Link
@@ -31,7 +31,7 @@ const Header = () => {
         </li>
       </ul>
 
-      <MobileMenu className='sm:hidden' />
+      <MobileMenu className='lg:hidden' />
     </header>
   );
 };

@@ -60,7 +60,7 @@ export default async function AboutUs() {
           </h2>
         </InViewWrapper>
 
-        <div className='flex items-center justify-center gap-x-10 w-fit hover:pause animate-slide mt-16 sm:mt-24 lg:mt-28'>
+        <div className='flex items-center justify-center gap-x-10 w-fit hover:pause animate-slide mt-16 sm:mt-24 lg:mt-32'>
           {[
             ...aboutUs.logos,
             ...aboutUs.logos,
