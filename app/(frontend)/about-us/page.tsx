@@ -52,8 +52,14 @@ export default async function AboutUs() {
         })}
       </div>
 
-      <section className='w-full flex items-center justify-center overflow-hidden mt-24 sm:mt-32 lg:mt-40'>
-        <div className='flex items-center justify-center gap-x-10 w-fit hover:pause animate-slide'>
+      <section className='w-full flex-col items-center justify-center overflow-hidden mt-24 sm:mt-32 lg:mt-44'>
+        <InViewWrapper>
+          <h2 className='text-4xl sm:text-5xl lg:text-6xl text-center'>
+            Clients
+          </h2>
+        </InViewWrapper>
+
+        <div className='flex items-center justify-center gap-x-10 w-fit hover:pause animate-slide mt-16 sm:mt-24 lg:mt-28'>
           {[
             ...aboutUs.logos,
             ...aboutUs.logos,

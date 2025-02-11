@@ -39,6 +39,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'logosTitle',
+      title: 'Logos Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'logos',
       title: 'Logos',
       type: 'array',
