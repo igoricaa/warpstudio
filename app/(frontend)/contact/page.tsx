@@ -27,13 +27,6 @@ const Contact = async () => {
         <InViewWrapper className='mt-1 sm:mt-2'>
           <div className='flex flex-col gap-1 sm:gap-2'>
             <a
-              href='https://warpstudio.passgallery.com/client'
-              target='_blank'
-              className='text-base lg:text-xl underline-link'
-            >
-              Gallery
-            </a>
-            <a
               href='https://www.instagram.com/warp.studio/'
               target='_blank'
               className='text-base lg:text-xl underline-link'

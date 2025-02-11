@@ -18,6 +18,7 @@ export type AboutUs = {
     title: string;
     text: string[];
   };
+  logosTitle: string;
   logos: {
     url: string;
     alt: string;
@@ -32,10 +33,11 @@ export type Services = {
     title: string;
     description: string;
   }[];
-  photoPortfolio: {
-    title: string;
-    projects: PhotographyProject[];
-  };
+};
+
+export type Photography = {
+  title: string;
+  projects: PhotographyProject[];
 };
 
 export type PhotographyProject = {

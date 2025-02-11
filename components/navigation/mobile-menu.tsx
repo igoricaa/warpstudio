@@ -54,21 +54,16 @@ const MobileMenu = ({ className }: { className: string }) => {
           </div>
           <div className='flex flex-col'>
             <p className='text-3xl mb-2 underline-partial'>Follow us</p>
-            {socials.map((social: Social) => {
-              if (social.name === 'Gallery') {
-                return null;
-              }
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target='_blank'
-                  className='text-xl mt-2'
-                >
-                  {social.name}
-                </a>
-              );
-            })}
+            {socials.map((social: Social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target='_blank'
+                className='text-xl mt-2'
+              >
+                {social.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>

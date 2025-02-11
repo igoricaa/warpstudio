@@ -42,7 +42,7 @@ export default defineType({
       name: 'logosTitle',
       title: 'Logos Title',
       type: 'string',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'logos',

@@ -14,9 +14,8 @@ export const routes: Route[] = [
     path: '/services',
   },
   {
-    name: 'Gallery',
-    path: 'https://warpstudio.passgallery.com/client',
-    external: true,
+    name: 'Photography',
+    path: '/photography',
   },
   {
     name: 'Contact',
@@ -25,10 +24,6 @@ export const routes: Route[] = [
 ];
 
 export const socials: Social[] = [
-  {
-    name: 'Gallery',
-    url: 'https://warpstudio.passgallery.com/client',
-  },
   {
     name: 'Instagram',
     url: 'https://www.instagram.com/warp.studio/',
