@@ -12,6 +12,13 @@ export type Project = {
   order: number;
 };
 
+export type Videos = {
+  _id: string;
+  title: string;
+  adProjects: Project[];
+  vfxProjects: Project[];
+};
+
 export type AboutUs = {
   title: string;
   aboutUsText: {

@@ -2,7 +2,7 @@ import { revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const tags = ['project', 'aboutUs', 'services', 'photography', 'vfx'];
+  const tags = ['project', 'aboutUs', 'services', 'photography', 'videos'];
 
   for (const tag of tags) {
     revalidateTag(tag);
