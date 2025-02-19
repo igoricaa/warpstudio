@@ -23,7 +23,7 @@ const MobileMenu = ({ className }: { className: string }) => {
   return (
     <div className={`${className}`}>
       <div className='flex items-center gap-6 sm:gap-8 z-50 relative '>
-        <ThemeSwitcher />
+        <ThemeSwitcher size='w-6 h-6' />
         <Burger handleClick={toggleMenu} isOpen={menuOpen} />
       </div>
 

@@ -117,7 +117,7 @@ const VideoPlayer = ({
           playbackId={project.video.playbackId}
           minResolution='1080p'
           preload={[0].includes(index) ? 'auto' : 'none'}
-          poster={project.image.url}
+          poster={project.image?.url || ''}
           playsInline
           disablePictureInPicture
           muted

@@ -26,8 +26,8 @@ const Header = () => {
             </Link>
           </li>
         ))}
-        <li className='w-6 h-6 sm:w-8 sm:h-8'>
-          <ThemeSwitcher size='w-6 h-6 sm:w-8 sm:h-8' />
+        <li className='w-8 h-8'>
+          <ThemeSwitcher size='w-8 h-8' />
         </li>
       </ul>
 

@@ -1,6 +1,6 @@
-import VideoPlayer from '@/components/video-player';
+import VideosWrapper from '@/components/videos/videos-wrapper';
 import { sanityFetch } from '@/sanity/lib/client';
-import { Project, Videos } from '@/utils/types';
+import { Videos } from '@/utils/types';
 
 export default async function Video() {
   async function getVideos() {
@@ -53,37 +53,8 @@ export default async function Video() {
   }
 
   return (
-    <main className='flex flex-wrap lg:gap-x-10 gap-y-4 sm:gap-y-8 lg:gap-y-28 px-side pt-28 sm:pt-44 lg:pt-48 pb-28 sm:pb-36 lg:pb-40'>
-      {videos.adProjects &&
-        videos.adProjects.length > 0 &&
-        videos.adProjects.map((project: Project, index: number) => {
-          const modifiedProject = {
-            ...project,
-            video: {
-              ...project.video,
-              aspectRatio: project.video.aspectRatio.replace(':', '/'),
-            },
-          };
-
-          return (
-            <VideoPlayer key={index} project={modifiedProject} index={index} />
-          );
-        })}
-      {videos.vfxProjects &&
-        videos.vfxProjects.length > 0 &&
-        videos.vfxProjects.map((project: Project, index: number) => {
-          const modifiedProject = {
-            ...project,
-            video: {
-              ...project.video,
-              aspectRatio: project.video.aspectRatio.replace(':', '/'),
-            },
-          };
-
-          return (
-            <VideoPlayer key={index} project={modifiedProject} index={index} />
-          );
-        })}
+    <main className='px-side pt-28 sm:pt-44 lg:pt-64 pb-28 sm:pb-36 lg:pb-40'>
+      <VideosWrapper videos={videos} />
     </main>
   );
 }
