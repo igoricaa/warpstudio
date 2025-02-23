@@ -117,7 +117,7 @@ export function ContactForm() {
       </form>
       <Script
         id='recaptcha-load'
-        strategy='beforeInteractive'
+        strategy='lazyOnload'
         src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
         onLoad={() => {
           grecaptcha.ready(function () {
