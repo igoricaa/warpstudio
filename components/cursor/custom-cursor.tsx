@@ -1,40 +1,41 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const CustomCursor = ({
   isActive,
   text = 'Pogledaj više',
 }: {
   isActive: boolean;
-  slug?: string;
   text?: string;
 }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorLabelRef = useRef<HTMLDivElement>(null);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX - 64}px, ${e.clientY - 64}px, 0) ${isActive ? 'scale(1)' : 'scale(0)'}`;
+      }
+    },
+    [isActive]
+  );
 
   useEffect(() => {
-    if (window) {
-      window.addEventListener('mousemove', (e) => {
-        setCursorPosition({
-          x: e.clientX,
-          y: e.clientY,
-        });
-      });
-    }
-  }, []);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [handleMouseMove]);
 
   return (
     <div
       ref={cursorRef}
       className={`cursor ${isActive ? 'active' : ''}`}
       style={{
-        left: cursorPosition.x - 64,
-        top: cursorPosition.y - 64,
+        top: 0,
+        left: 0,
+        transform: 'translate3d(0, 0, 0) scale(0)',
       }}
     >
-      <div ref={cursorLabelRef} className='cursorLabel'>
+      <div className='cursorLabel'>
         <span>{text}</span>
       </div>
     </div>

@@ -63,7 +63,7 @@
 
 .cursor,
 .cursorLabel {
-  @apply w-32 h-32 rounded-full bg-gradient text-white fixed z-20 hidden lg:flex items-center justify-center pointer-events-none transform scale-0 invisible transition-all duration-200 ease-out;
+  @apply w-32 h-32 rounded-full bg-gradient text-white fixed z-20 hidden lg:flex items-center justify-center invisible pointer-events-none transform transition-[transform,visibility] duration-200 ease-out will-change-transform;
 }
 
 .cursorLabel {
@@ -72,7 +72,7 @@
 
 .cursor.active,
 .cursor.active .cursorLabel {
-  @apply visible transform scale-100;
+  @apply visible scale-100;
 }
 
 .grecaptcha-badge {
